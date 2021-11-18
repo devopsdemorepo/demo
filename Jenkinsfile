@@ -23,7 +23,7 @@ pipeline {
 	}
 	stage('Deploy to Dev') {
             steps {
-                deploy adapters: [tomcat8(credentialsId: 'tomcatcreds', path: '', url: 'http://3.121.211.98:8081/')], contextPath: '/', war: 'target/sparkjava-hello-world-1.0.war'
+                deploy adapters: [tomcat8(credentialsId: 'tomcatcreds', path: '', url: 'http://3.121.211.98:8082/')], contextPath: '/', war: 'target/sparkjava-hello-world-1.0.war'
             }
 	}
 	stage('Approve') {

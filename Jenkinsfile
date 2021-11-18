@@ -6,10 +6,21 @@ pipeline {
         maven "maven"
         }
     stages {
-		stage('prepare') {
+		stage('build') {
             steps {
                 sh "mvn package"
             }
-		}
+	}
+    }
+
+	
+	
+	post {
+        always {          
+            archiveArtifacts artifacts: "**/target/*.war", onlyIfSuccessful: true
+            
+  
+        }
     }
 }
+
